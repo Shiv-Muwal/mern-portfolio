@@ -2,13 +2,17 @@
     "version": 2,
     "builds": [
       {
-        "src": "server.js",
-        "use": "@vercel/static-build",
-        "config": { "distDir": "build" }
+        "src": "app.js",
+        "use": "@vercel/node"
       }
     ],
     "routes": [
-      { "src": "/(.*)", "dest": "/server.js" }
-    ]
+      { "src": "/(.*)", "dest": "/app.js" }
+    ],
+    "env": {
+      "CLOUDINARY_CLOUD_NAME": "@CLOUDINARY_CLOUD_NAME",
+      "CLOUDINARY_API_KEY": "@CLOUDINARY_API_KEY",
+      "CLOUDINARY_API_SECRET": "@CLOUDINARY_API_SECRET",
+      "PORT": "@PORT"
+    }
   }
-  
